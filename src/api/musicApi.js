@@ -1,7 +1,16 @@
-const BASE_URL = "http://localhost:8080/";
+import axios from "axios";
 
-export const getRandomSong = () =>
-    `${BASE_URL}v1/`;
+const BASE_URL = "http://192.168.1.39:8080/v1";
 
-export const getSong = (id) =>
-    `${BASE_URL}v1/songs/${id}`;
+const api = axios.create({
+  baseURL: BASE_URL,
+});
+
+export const fetchRandomSong = async () => {
+  const randomSongDetails = await api.get("/radio");
+  return randomSongDetails.data;
+};
+
+export const getSongStream = (id) => `${BASE_URL}/songs/${id}`;
+
+export default api;
