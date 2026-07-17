@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Paper, Stack } from "@mui/material";
+
+import { Paper, Stack, Typography } from "@mui/material";
 
 import SongInfo from "./SongInfo";
 import PlayerControls from "./PlayerControls";
@@ -11,54 +12,91 @@ export default function AudioPlayer({
   src,
   radioMode = false,
   onSongEnd,
+  registerPlayPause,
 }) {
   const audioRef = useRef(null);
 
   const [playing, setPlaying] = useState(false);
+
   const [currentTime, setCurrentTime] = useState(0);
+
   const [duration, setDuration] = useState(0);
+
   const [volume, setVolume] = useState(1);
 
-  // Load & autoplay whenever src changes
   useEffect(() => {
     if (!audioRef.current || !src) return;
 
-    audioRef.current.load();
+    const audio = audioRef.current;
 
-    audioRef.current
+    audio.load();
+
+    audio
       .play()
-      .then(() => setPlaying(true))
-      .catch(console.error);
+      .then(() => {
+        setPlaying(true);
+      })
+      .catch(() => {
+        setPlaying(false);
+      });
   }, [src]);
 
-  const togglePlayPause = () => {
+  useEffect(() => {
+    if (!registerPlayPause) return;
+
+    registerPlayPause(togglePlayPause);
+  }, [registerPlayPause, playing]);
+
+  const togglePlayPause = async () => {
     if (!audioRef.current) return;
 
+    const audio = audioRef.current;
+
     if (playing) {
-      audioRef.current.pause();
+      audio.pause();
+
       setPlaying(false);
     } else {
-      audioRef.current.play();
+      await audio.play();
+
       setPlaying(true);
     }
   };
 
   const handleSeek = (time) => {
+    if (!audioRef.current) return;
+
     audioRef.current.currentTime = time;
+
     setCurrentTime(time);
   };
 
   const handleVolume = (value) => {
+    if (!audioRef.current) return;
+
     audioRef.current.volume = value;
+
     setVolume(value);
   };
 
   return (
     <Paper
-      elevation={4}
+      elevation={0}
       sx={{
-        p: 3,
-        borderRadius: 3,
+        width: "100%",
+
+        borderRadius: 4,
+
+        background: "linear-gradient(145deg,#111,#050505)",
+
+        border: "1px solid rgba(255,255,255,.08)",
+
+        boxShadow: "0 20px 50px rgba(0,0,0,.45)",
+
+        p: {
+          xs: 2.5,
+          sm: 3.5,
+        },
       }}
     >
       <audio
@@ -67,12 +105,20 @@ export default function AudioPlayer({
         onLoadedMetadata={() => setDuration(audioRef.current.duration)}
         onEnded={() => {
           setPlaying(false);
-          onSongEnd();
+
+          onSongEnd?.();
         }}
       >
         <source src={src} />
       </audio>
-      <Stack spacing={3}>
+
+      <Stack
+        spacing={{
+          xs: 2.5,
+          sm: 3,
+        }}
+        alignItems="center"
+      >
         <SongInfo song={song} />
 
         <PlayerControls
@@ -90,6 +136,19 @@ export default function AudioPlayer({
         )}
 
         <VolumeControl volume={volume} onVolumeChange={handleVolume} />
+
+        <Typography
+          variant="caption"
+          sx={{
+            textAlign: "center",
+            color: "rgba(255,255,255,.35)",
+            letterSpacing: ".08em",
+            mt: 1,
+            userSelect: "none",
+          }}
+        >
+          Press <b style={{ color: "#1D9CB9" }}>SPACE</b> to play / pause
+        </Typography>
       </Stack>
     </Paper>
   );

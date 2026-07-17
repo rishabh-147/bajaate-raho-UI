@@ -3,7 +3,7 @@ import axios from "axios";
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const api = axios.create({
-  baseURL: BASE_URL,
+  baseURL: API_BASE_URL,
 });
 
 export const fetchRandomSong = async () => {
@@ -11,6 +11,6 @@ export const fetchRandomSong = async () => {
   return randomSongDetails.data;
 };
 
-export const getSongStream = (id) => `${BASE_URL}/songs/${id}`;
+export const getSongStream = (id) => `${API_BASE_URL}/songs/${id}`;
 
 export default api;

@@ -1,0 +1,212 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
+    fill="none"
+>
+
+    <defs>
+
+        <style>
+
+            .radio{
+                stroke:currentColor;
+                fill:none;
+                stroke-width:8;
+                stroke-linecap:round;
+                stroke-linejoin:round;
+                vector-effect:non-scaling-stroke;
+            }
+
+            .solid{
+                fill:currentColor;
+            }
+
+            .wave{
+                stroke:currentColor;
+                fill:none;
+                stroke-width:6;
+                stroke-linecap:round;
+                transform-origin:center;
+                transform-box:fill-box;
+            }
+
+            .eq{
+                transform-origin:center bottom;
+                transform-box:fill-box;
+            }
+
+            .speakerCenter{
+                transform-origin:center;
+                transform-box:fill-box;
+            }
+
+            /* ---------------- PLAYING ---------------- */
+
+            .playing .wave1{
+                animation:waveOne 1.4s ease-in-out infinite;
+            }
+
+            .playing .wave2{
+                animation:waveTwo 1.4s ease-in-out .25s infinite;
+            }
+
+            .playing .eq1{
+                animation:eq1 .75s ease-in-out infinite;
+            }
+
+            .playing .eq2{
+                animation:eq2 .60s ease-in-out infinite;
+            }
+
+            .playing .eq3{
+                animation:eq3 .90s ease-in-out infinite;
+            }
+
+            .playing .eq4{
+                animation:eq4 .70s ease-in-out infinite;
+            }
+
+            .playing .speakerCenter{
+                animation:beat 1.2s ease-in-out infinite;
+            }
+
+            /* ---------------- KEYFRAMES ---------------- */
+
+            @keyframes waveOne{
+
+                0%,100%{
+                    opacity:.35;
+                    transform:scale(.90);
+                }
+
+                50%{
+                    opacity:1;
+                    transform:scale(1.12);
+                }
+
+            }
+
+            @keyframes waveTwo{
+
+                0%,100%{
+                    opacity:.25;
+                    transform:scale(.82);
+                }
+
+                50%{
+                    opacity:1;
+                    transform:scale(1.18);
+                }
+
+            }
+
+            @keyframes eq1{
+
+                0%,100%{transform:scaleY(.60);}
+                50%{transform:scaleY(1.20);}
+
+            }
+
+            @keyframes eq2{
+
+                0%,100%{transform:scaleY(1.15);}
+                50%{transform:scaleY(.55);}
+
+            }
+
+            @keyframes eq3{
+
+                0%,100%{transform:scaleY(.55);}
+                50%{transform:scaleY(1.40);}
+
+            }
+
+            @keyframes eq4{
+
+                0%,100%{transform:scaleY(.90);}
+                50%{transform:scaleY(1.25);}
+
+            }
+
+            @keyframes beat{
+
+                0%,100%{
+                    transform:scale(1);
+                }
+
+                50%{
+                    transform:scale(1.18);
+                }
+
+            }
+
+        </style>
+
+    </defs>
+
+    <!-- Broadcast Waves -->
+
+    <path
+        class="wave wave1"
+        d="M176 52
+           Q188 40 188 24"
+    />
+
+    <path
+        class="wave wave2"
+        d="M192 60
+           Q210 42 210 14"
+    />
+
+    <!-- Antenna -->
+
+    <line
+        class="radio"
+        x1="70"
+        y1="50"
+        x2="160"
+        y2="15"
+    />
+
+    <!-- Radio Body -->
+
+    <rect
+        class="radio"
+        x="30"
+        y="60"
+        width="196"
+        height="150"
+        rx="30"
+    />
+
+    <!-- Grill -->
+
+    <line class="radio" x1="55" y1="95"  x2="118" y2="95"/>
+    <line class="radio" x1="55" y1="115" x2="118" y2="115"/>
+    <line class="radio" x1="55" y1="135" x2="118" y2="135"/>
+    <line class="radio" x1="55" y1="155" x2="118" y2="155"/>
+
+    <!-- Equalizer -->
+
+    <rect class="solid eq eq1" x="70"  y="173" width="6" height="18" rx="3"/>
+    <rect class="solid eq eq2" x="84"  y="166" width="6" height="25" rx="3"/>
+    <rect class="solid eq eq3" x="98"  y="154" width="6" height="37" rx="3"/>
+    <rect class="solid eq eq4" x="112" y="168" width="6" height="23" rx="3"/>
+
+    <!-- Speaker -->
+
+    <circle
+        class="radio"
+        cx="175"
+        cy="135"
+        r="38"
+    />
+
+    <circle
+        class="solid speakerCenter"
+        cx="175"
+        cy="135"
+        r="11"
+    />
+
+</svg>
