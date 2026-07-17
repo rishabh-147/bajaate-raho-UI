@@ -1,70 +1,238 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./src/assets/logo.svg" width="120" />
 
-## Available Scripts
+# 🎵 Bajaate Raho
 
-In the project directory, you can run:
+### Personal Radio Streaming Experience
 
-### `npm start`
+A modern React-based music player interface built for a lightweight personal radio streaming platform.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
+![Material UI](https://img.shields.io/badge/Material_UI-7-007FFF?style=for-the-badge&logo=mui)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript)
 
-### `npm test`
+</div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🎧 Overview
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Bajaate Raho** is a personal radio experience where every song is a surprise.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The frontend provides a clean, immersive music interface focused on:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Smooth radio playback
+- Minimal UI distractions
+- Responsive layouts
+- Modern dark theme aesthetics
+- Native browser audio streaming
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ✨ Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 📻 Radio Mode
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Start / Stop personal radio
+- Automatic next song playback
+- Live currently playing information
+- Animated radio branding
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🎵 Player Experience
 
-## Learn More
+- Play / Pause controls
+- Volume control
+- Responsive audio player
+- Long title marquee animation
+- Keyboard shortcut support
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+SPACE → Play / Pause
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🎨 UI Experience
 
-### Code Splitting
+- AMOLED inspired dark interface
+- Material UI based components
+- Smooth transitions
+- Desktop and mobile optimized layout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 🖥️ Screens
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Desktop
 
-### Making a Progressive Web App
+```
++--------------------+       +--------------------+
+|                    |       |                    |
+|    Radio Card      |  -->  |    Audio Player    |
+|                    |       |                    |
++--------------------+       +--------------------+
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Mobile
 
-### Advanced Configuration
+```
++----------------+
+|   Radio Card   |
++----------------+
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+       ↓
 
-### Deployment
++----------------+
+| Audio Player   |
++----------------+
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+# 🛠️ Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Technology      | Purpose            |
+| --------------- | ------------------ |
+| React           | Frontend Framework |
+| Material UI     | Component Library  |
+| Axios           | API Communication  |
+| HTML5 Audio API | Audio Playback     |
+| CSS Animations  | UI Motion          |
+
+---
+
+# 📂 Project Structure
+
+```
+src
+│
+├── api
+│   └── musicApi.js
+│
+├── assets
+│   ├── logo.svg
+│   └── logo-animated.svg
+│
+├── components
+│   │
+│   ├── layout
+│   │   └── Header.jsx
+│   │
+│   ├── radio
+│   │   └── RadioCard.jsx
+│   │
+│   └── player
+│       ├── AudioPlayer.jsx
+│       ├── PlayerControls.jsx
+│       ├── SongInfo.jsx
+│       ├── ProgressBar.jsx
+│       └── VolumeControl.jsx
+│
+├── pages
+│   └── Home.jsx
+│
+└── App.js
+```
+
+---
+
+# 🚀 Getting Started
+
+## Clone Repository
+
+```bash
+git clone https://github.com/rishabh-147/bazaate-raho-UI.git
+```
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+## Run Development Server
+
+```bash
+npm start
+```
+
+Application:
+
+```
+http://localhost:3000
+```
+
+---
+
+# ⚙️ Environment Setup
+
+Create:
+
+```
+.env.development
+```
+
+Add:
+
+```env
+REACT_APP_API_BASE_URL=http://localhost:8080
+```
+
+For local network streaming:
+
+```env
+REACT_APP_API_BASE_URL=http://YOUR_BACKEND_IP:8080
+```
+
+---
+
+# 🏗️ Production Build
+
+Create optimized build:
+
+```bash
+npm run build
+```
+
+Generated output:
+
+```
+build/
+```
+
+---
+
+# 🔗 Backend
+
+Frontend communicates with:
+
+**Bajaate Raho Backend**
+
+Spring Boot powered audio streaming service providing:
+
+- Song metadata
+- Random radio selection
+- HTTP range streaming
+- Browser compatible audio streams
+
+---
+
+# 🗺️ Future Roadmap
+
+- [ ] Playlist support
+- [ ] Search
+- [ ] Favorites
+- [ ] User library
+- [ ] PWA support
+- [ ] Mobile gestures
+
+---
+
+<div align="center">
+
+Built with ❤️ and 🎵
+
+**Rishabh Tiwari**
+
+</div>
