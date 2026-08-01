@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 import Header from "../components/layout/Header";
 import RadioCard from "../components/radio/RadioCard";
@@ -7,9 +7,14 @@ import AudioPlayer from "../components/player/AudioPlayer";
 
 import { fetchRandomSong, getSongStream } from "../api/musicApi";
 
+import AboutCard from "../components/about/AboutCard";
+import ArchitectureAccordion from "../components/about/ArchitectureAccordion";
+import Footer from "../components/layout/Footer";
+
 const CARD_WIDTH = {
-  xs: "100%",
-  sm: 520,
+  xs: "calc(100vw - 32px)",
+  sm: 480,
+  md: 500,
 };
 
 export default function Home() {
@@ -73,6 +78,8 @@ export default function Home() {
     }
   };
 
+  const architectureRef = useRef(null);
+
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (event.code !== "Space") return;
@@ -93,10 +100,16 @@ export default function Home() {
     <>
       <Header />
 
+      {/* HERO SECTION */}
+
       <Container
         maxWidth="xl"
         sx={{
-          minHeight: "calc(100vh - 72px)",
+          minHeight: {
+            xs: "auto",
+
+            md: "calc(100vh - 72px)",
+          },
 
           display: "flex",
 
@@ -104,8 +117,19 @@ export default function Home() {
 
           alignItems: "center",
 
+          position: "relative",
+
+          px: {
+            xs: 2,
+
+            sm: 3,
+
+            md: 4,
+          },
+
           py: {
             xs: 4,
+
             md: 0,
           },
         }}
@@ -116,26 +140,21 @@ export default function Home() {
 
             display: "flex",
 
-            alignItems: "center",
+            justifyContent: "center",
 
-            justifyContent: isRadioPlaying
-              ? {
-                  xs: "center",
-                  md: "center",
-                }
-              : "center",
+            alignItems: "center",
 
             flexDirection: {
               xs: "column",
-              md: "row",
+
+              md: isRadioPlaying ? "row" : "column",
             },
 
             gap: {
-              xs: 4,
+              xs: 3,
+
               md: 6,
             },
-
-            transition: "all .6s cubic-bezier(.4,0,.2,1)",
           }}
         >
           {/* RADIO CARD */}
@@ -144,14 +163,13 @@ export default function Home() {
             sx={{
               width: CARD_WIDTH,
 
-              transform: isRadioPlaying
-                ? "translateX(0)"
-                : {
-                    xs: "translateX(0)",
-                    md: "translateX(0)",
-                  },
+              maxWidth: "100%",
 
-              transition: "transform .6s cubic-bezier(.4,0,.2,1)",
+              display: "flex",
+
+              justifyContent: "center",
+
+              transition: "all .6s cubic-bezier(.4,0,.2,1)",
             }}
           >
             <RadioCard
@@ -167,17 +185,15 @@ export default function Home() {
             sx={{
               width: CARD_WIDTH,
 
+              maxWidth: "100%",
+
+              display: "flex",
+
+              justifyContent: "center",
+
               opacity: isRadioPlaying ? 1 : 0,
 
-              transform: isRadioPlaying
-                ? {
-                    xs: "translateY(0)",
-                    md: "translateX(0)",
-                  }
-                : {
-                    xs: "translateY(40px)",
-                    md: "translateX(80px)",
-                  },
+              transform: isRadioPlaying ? "translateY(0)" : "translateY(40px)",
 
               pointerEvents: isRadioPlaying ? "auto" : "none",
 
@@ -195,6 +211,94 @@ export default function Home() {
             )}
           </Box>
         </Box>
+      </Container>
+
+      {/* Scroll down indicator */}
+      <Box
+        onClick={() =>
+          architectureRef.current?.scrollIntoView({
+            behavior: "smooth",
+          })
+        }
+        sx={{
+          display: {
+            xs: "none",
+            md: "flex",
+          },
+
+          position: "absolute",
+
+          bottom: 20,
+
+          left: "50%",
+
+          transform: "translateX(-50%)",
+
+          flexDirection: "column",
+
+          alignItems: "center",
+
+          cursor: "pointer",
+
+          color: "#22D3EE",
+
+          opacity: 0.8,
+
+          animation: "bounce 2s infinite",
+
+          "@keyframes bounce": {
+            "0%, 20%, 50%, 80%, 100%": {
+              transform: "translateX(-50%) translateY(0)",
+            },
+
+            "40%": {
+              transform: "translateX(-50%) translateY(-8px)",
+            },
+
+            "60%": {
+              transform: "translateX(-50%) translateY(-4px)",
+            },
+          },
+        }}
+      >
+        <Typography
+          variant="caption"
+          sx={{
+            letterSpacing: ".15em",
+            fontSize: 11,
+          }}
+        >
+          ARCHITECTURE
+        </Typography>
+
+        <Typography
+          sx={{
+            fontSize: 24,
+            lineHeight: 1,
+          }}
+        >
+          ↓
+        </Typography>
+      </Box>
+
+      {/* ABOUT SECTION */}
+
+      <Container
+        maxWidth="md"
+        sx={{
+          px: {
+            xs: 2,
+
+            sm: 3,
+          },
+
+          pb: 8,
+        }}
+        ref={architectureRef}
+      >
+        <AboutCard />
+        <ArchitectureAccordion />
+        <Footer />
       </Container>
     </>
   );
