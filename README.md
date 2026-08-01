@@ -18,7 +18,7 @@ A modern React-based music player interface built for a lightweight personal rad
 
 ---
 
-## 🎧 Overview
+# 🎧 Overview
 
 **Bajaate Raho** is a personal radio experience where every song is a surprise.
 
@@ -26,22 +26,26 @@ The frontend provides a clean, immersive music interface focused on:
 
 - Smooth radio playback
 - Minimal UI distractions
-- Responsive layouts
-- Modern dark theme aesthetics
+- Responsive layouts across desktop and mobile
+- Modern AMOLED inspired dark theme aesthetics
 - Native browser audio streaming
+- Interactive project documentation through About and Architecture sections
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-### 📻 Radio Mode
+## 📻 Radio Mode
 
 - Start / Stop personal radio
 - Automatic next song playback
 - Live currently playing information
 - Animated radio branding
+- Seamless browser-based audio streaming
 
-### 🎵 Player Experience
+---
+
+## 🎵 Player Experience
 
 - Play / Pause controls
 - Volume control
@@ -53,18 +57,24 @@ The frontend provides a clean, immersive music interface focused on:
 SPACE → Play / Pause
 ```
 
-### 🎨 UI Experience
+---
+
+## 🎨 UI Experience
 
 - AMOLED inspired dark interface
 - Material UI based components
-- Smooth transitions
-- Desktop and mobile optimized layout
+- Glassmorphism inspired cards
+- Smooth transitions and animations
+- Desktop and mobile optimized layouts
+- Interactive architecture visualization
+- Scroll guidance between sections
+- Responsive typography and components
 
 ---
 
-## 🖥️ Screens
+# 🖥️ Screens
 
-### Desktop
+## Desktop
 
 ```
 +--------------------+       +--------------------+
@@ -72,9 +82,23 @@ SPACE → Play / Pause
 |    Radio Card      |  -->  |    Audio Player    |
 |                    |       |                    |
 +--------------------+       +--------------------+
+
+              ↓
+
++--------------------------------+
+|       About Bajaate Raho       |
++--------------------------------+
+
+              ↓
+
++--------------------------------+
+|      Architecture Flow         |
++--------------------------------+
 ```
 
-### Mobile
+---
+
+## Mobile
 
 ```
 +----------------+
@@ -86,19 +110,31 @@ SPACE → Play / Pause
 +----------------+
 | Audio Player   |
 +----------------+
+
+       ↓
+
++----------------+
+| About Section  |
++----------------+
+
+       ↓
+
++----------------+
+| Architecture   |
++----------------+
 ```
 
 ---
 
 # 🛠️ Tech Stack
 
-| Technology      | Purpose            |
-| --------------- | ------------------ |
-| React           | Frontend Framework |
-| Material UI     | Component Library  |
-| Axios           | API Communication  |
-| HTML5 Audio API | Audio Playback     |
-| CSS Animations  | UI Motion          |
+| Technology      | Purpose                     |
+| --------------- | --------------------------- |
+| React           | Frontend Framework          |
+| Material UI     | Component Library           |
+| Axios           | API Communication            |
+| HTML5 Audio API | Audio Playback Engine        |
+| CSS Animations  | UI Motion & Micro Animations |
 
 ---
 
@@ -117,17 +153,22 @@ src
 ├── components
 │   │
 │   ├── layout
-│   │   └── Header.jsx
+│   │   ├── Header.jsx
+│   │   └── Footer.jsx
 │   │
 │   ├── radio
 │   │   └── RadioCard.jsx
 │   │
-│   └── player
-│       ├── AudioPlayer.jsx
-│       ├── PlayerControls.jsx
-│       ├── SongInfo.jsx
-│       ├── ProgressBar.jsx
-│       └── VolumeControl.jsx
+│   ├── player
+│   │   ├── AudioPlayer.jsx
+│   │   ├── PlayerControls.jsx
+│   │   ├── SongInfo.jsx
+│   │   ├── ProgressBar.jsx
+│   │   └── VolumeControl.jsx
+│   │
+│   └── about
+│       ├── AboutCard.jsx
+│       └── ArchitectureAccordion.jsx
 │
 ├── pages
 │   └── Home.jsx
@@ -145,11 +186,15 @@ src
 git clone https://github.com/rishabh-147/bazaate-raho-UI.git
 ```
 
+---
+
 ## Install Dependencies
 
 ```bash
 npm install
 ```
+
+---
 
 ## Run Development Server
 
