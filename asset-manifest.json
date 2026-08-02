@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/bajaate-raho-UI/static/css/main.e6c13ad2.css",
-    "main.js": "/bajaate-raho-UI/static/js/main.7c8a2ede.js",
+    "main.js": "/bajaate-raho-UI/static/js/main.f79f7456.js",
+    "static/media/oracle_cloud_logo.png": "/bajaate-raho-UI/static/media/oracle_cloud_logo.069f4cb7fdef9b6415cb.png",
     "static/media/logo-animated.svg": "/bajaate-raho-UI/static/media/logo-animated.3df47e8bb6cbdd4fc110d5a936264ddc.svg",
+    "static/media/Cloudflare_Logo.svg": "/bajaate-raho-UI/static/media/Cloudflare_Logo.75257ef4fac04c1546b27f3ad1abf2b8.svg",
     "index.html": "/bajaate-raho-UI/index.html",
     "static/media/logo.svg": "/bajaate-raho-UI/static/media/logo.058a66f9acdcb5d66138c1d725894fd3.svg",
     "main.e6c13ad2.css.map": "/bajaate-raho-UI/static/css/main.e6c13ad2.css.map",
-    "main.7c8a2ede.js.map": "/bajaate-raho-UI/static/js/main.7c8a2ede.js.map"
+    "main.f79f7456.js.map": "/bajaate-raho-UI/static/js/main.f79f7456.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.7c8a2ede.js"
+    "static/js/main.f79f7456.js"
   ]
 }
