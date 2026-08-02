@@ -1,6 +1,9 @@
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
+import cloudflareLogo from "../../assets/Cloudflare_Logo.svg";
+import oracleLogo from "../../assets/oracle_cloud_logo.png";
+
 import {
   Accordion,
   AccordionDetails,
@@ -15,18 +18,32 @@ import {
 
 const architectureSteps = [
   {
-    title: "🌐 GitHub Pages",
-    subtitle: "React + Material UI",
+    title: "GitHub Pages",
+    subtitle: "React + Material UI • HTTPS Frontend",
+    logo: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
     type: "frontend",
   },
   {
-    title: "⚙ Spring Boot Backend",
-    subtitle: "REST API • Cloudflare Tunnel",
-    type: "backend",
+    title: "Cloudflare Tunnel",
+    subtitle: "Secure HTTPS Gateway • Edge Routing",
+    logo: cloudflareLogo,
+    type: "cloudflare",
   },
   {
-    title: "🎵 Local Music Library",
-    subtitle: "Random MP3 Collection",
+    title: "Oracle Cloud VM",
+    subtitle: "Ubuntu • Spring Boot • Java 21 • OCI",
+    logo: oracleLogo,
+    type: "cloud",
+  },
+  {
+    title: "Nginx Reverse Proxy",
+    subtitle: "Traffic Routing • Streaming Optimization",
+    logo: "https://nginx.org/nginx.png",
+    type: "proxy",
+  },
+  {
+    title: "Music Library",
+    subtitle: "MP3 Storage • Byte-Range Streaming",
     type: "storage",
   },
 ];
@@ -190,6 +207,20 @@ export default function ArchitectureAccordion() {
                   },
                 }}
               >
+                {item.logo && (
+                  <Box
+                    component="img"
+                    src={item.logo}
+                    alt={item.title}
+                    sx={{
+                      width: 45,
+                      height: 45,
+                      objectFit: "contain",
+                      mb: 1.5,
+                    }}
+                  />
+                )}
+
                 <Typography fontWeight={700}>{item.title}</Typography>
 
                 <Typography variant="body2" color="text.secondary" mt={1}>

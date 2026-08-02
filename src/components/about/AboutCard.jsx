@@ -134,30 +134,123 @@ export default function AboutCard() {
           $ about
         </Typography>
 
-<Typography
-  sx={{
-    lineHeight: {
-      xs: 1.8,
-      md: 2,
-    },
-    color: "text.secondary",
-    fontFamily: "inherit",
-    fontSize: {
-      xs: 12.5,
-      sm: 14,
-    },
-    textAlign: "justify",
-  }}
->
-  <p>Bajaate Raho is a lightweight internet radio built from scratch using React
-  and Spring Boot. </p>Every time you press Start Radio, the frontend requests a
-  random song from the backend. The backend scans a local music library,
-  returns metadata and streams audio using HTTP Range Requests for efficient
-  playback. 
-  
-<p>The frontend is hosted on GitHub Pages, while the backend runs as
-  a Spring Boot service securely exposed through Cloudflare Tunnel over HTTPS.</p>  
-</Typography>
+        <Typography
+          sx={{
+            lineHeight: {
+              xs: 1.8,
+              md: 2,
+            },
+            color: "text.secondary",
+            fontFamily: "inherit",
+            fontSize: {
+              xs: 12.5,
+              sm: 14,
+            },
+            textAlign: "justify",
+          }}
+        >
+          <strong>Bajaate Raho</strong> is a lightweight, self-hosted music
+          streaming platform built from scratch using modern backend and cloud
+          technologies.
+        </Typography>
+
+        <Typography
+          sx={{
+            mt: 2,
+            lineHeight: {
+              xs: 1.8,
+              md: 2,
+            },
+            color: "text.secondary",
+            fontSize: {
+              xs: 12.5,
+              sm: 14,
+            },
+          }}
+        >
+          The application is fully deployed and publicly accessible using a
+          production-style architecture:
+        </Typography>
+
+        <Box
+          component="ul"
+          sx={{
+            pl: 3,
+            mt: 1,
+            color: "text.secondary",
+            fontSize: {
+              xs: 12.5,
+              sm: 14,
+            },
+            lineHeight: 1.8,
+          }}
+        >
+          <li>
+            🎵 <strong>Backend:</strong> Spring Boot application running on an
+            Oracle Cloud Infrastructure (OCI) Virtual Machine.
+          </li>
+
+          <li>
+            🌐 <strong>Frontend:</strong> React application deployed on GitHub
+            Pages with a secure HTTPS delivery pipeline.
+          </li>
+
+          <li>
+            🚀 <strong>Reverse Proxy:</strong> Nginx handles incoming traffic
+            and routes requests to the backend service.
+          </li>
+
+          <li>
+            🔒 <strong>Secure Access:</strong> Cloudflare Tunnel provides HTTPS
+            access without exposing internal backend services directly.
+          </li>
+
+          <li>
+            ⚙️ <strong>Runtime Management:</strong> Backend runs as a Linux
+            systemd service for reliability and automatic startup.
+          </li>
+        </Box>
+
+        <Typography
+          sx={{
+            mt: 2,
+            lineHeight: {
+              xs: 1.8,
+              md: 2,
+            },
+            color: "text.secondary",
+            fontSize: {
+              xs: 12.5,
+              sm: 14,
+            },
+            textAlign: "justify",
+          }}
+        >
+          Unlike traditional streaming applications, Bajaate Raho implements its
+          own lightweight audio streaming pipeline with HTTP byte-range support,
+          enabling smooth playback and seeking directly from the browser.
+        </Typography>
+
+        <Typography
+          sx={{
+            mt: 2,
+            lineHeight: {
+              xs: 1.8,
+              md: 2,
+            },
+            color: "text.secondary",
+            fontSize: {
+              xs: 12.5,
+              sm: 14,
+            },
+            textAlign: "justify",
+          }}
+        >
+          Built as a personal engineering project, Bajaate Raho explores the
+          complete lifecycle of a modern web application — from backend
+          development and frontend experience to cloud deployment, networking,
+          and production infrastructure.
+        </Typography>
         <Typography
           sx={{
             mt: 5,
@@ -176,21 +269,20 @@ export default function AboutCard() {
         </Typography>
 
         <Box
-  sx={{
-    mt: 2,
+          sx={{
+            mt: 2,
 
-    display: "flex",
+            display: "flex",
 
-    flexWrap: "wrap",
+            flexWrap: "wrap",
 
-    gap: 1,
+            gap: 1,
 
-    width: "100%",
+            width: "100%",
 
-    overflow: "visible",
-
-  }}
->
+            overflow: "visible",
+          }}
+        >
           {[
             "Java 21",
             "Spring Boot",
